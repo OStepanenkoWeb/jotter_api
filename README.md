@@ -32,7 +32,7 @@ And for testing the MongoDB, an in-memory implementation was used as a Jest pres
 - Инструкция по аутентификации и получению API-ключей для безопасного доступа.
 - Обзор моделей данных, используемых в API.
 
-![Описание бизнес логики](https://github.com/shreyasmanolkar/notion-api/assets/80336980/c9d64aad-1156-4be5-915a-b4b6ab7fea0a)
+![Описание бизнес логики](http://gitlab.id-mt.ru/sedo/frontend/course_book_api/blob/master/assets/busines.png)
 
 
 ## Как запустить локально
