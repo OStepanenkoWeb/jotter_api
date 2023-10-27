@@ -58,7 +58,7 @@ export class SignUpController extends BaseController {
     const workspaceId = await this.createWorkspace.execute(workspace);
 
     const pageId = await this.createPage.execute({
-      title: 'Chandrayaan-3 | चंद्रयान-३',
+      title: 'Тест',
       icon: '1f680',
       coverPicture: {
         url: '/static/media/nasa_space_shuttle_columbia_and_sunrise.b623df337db2db60dcc0.jpg',

@@ -7,7 +7,7 @@
     "build": "rimraf dist && tsc -p tsconfig-build.json",
     "build:watch": "npm run build -- --watch",
     "start": "node dist/main/server.js",
-    "dev": "nodemon -L --watch ./dist ./dist/main/server.js",
+    "dev": "ts-node-dev --respawn --transpile-only src/main/server.ts",
     "start:dev": "concurrently --kill-others-on-fail \"npm run build:watch\" \"npm run dev\"",
     "test": "jest --passWithNoTests --runInBand --no-cache",
     "test:staged": "npm run test --findRelatedTests",
@@ -62,13 +62,14 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "module-alias": "^2.2.2",
-    "mongodb": "^5.2.0"
+    "mongodb": "^5.2.0",
+    "ts-node-dev": "^2.0.0"
   },
   "_moduleAliases": {
-    "@domain": "./dist/domain",
-    "@application": "./dist/application",
-    "@infrastructure": "./dist/infrastructure",
-    "@main": "./dist/main"
+    "@domain": "./src/domain",
+    "@application": "./src/application",
+    "@infrastructure": "./src/infrastructure",
+    "@main": "./src/main"
   },
   "lint-staged": {
     "*.ts": [
