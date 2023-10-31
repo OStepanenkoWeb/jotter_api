@@ -19,6 +19,7 @@ import { UpdateUserWorkspaceMetaDataByWorkspaceIdRepository } from '@application
 import { RemoveWorkspaceByUserIdRepository } from '@application/interfaces/repositories/users/removeWorkspaceByUserIdRepository';
 import { RemovePageIdFromFavoritesByWorkspaceIdRepository } from '@application/interfaces/repositories/users/removePageIdFromFavoritesByWorkspaceIdRepository';
 import { DeleteUserRepository } from '@application/interfaces/repositories/users/deleteUserRepository';
+import { LocaleType } from '@domain/entities/User';
 
 export class UserRepository
   implements
@@ -47,6 +48,7 @@ export class UserRepository
     const { insertedId } = await collection.insertOne({
       ...userData,
       createdAt: new Date(),
+      locale: LocaleType.RU
     });
     return objectIdToString(insertedId);
   }

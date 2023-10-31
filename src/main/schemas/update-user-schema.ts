@@ -1,3 +1,5 @@
+import { LocaleType } from '@domain/entities/User';
+
 export const updateUserSchema = {
   type: 'object',
   properties: {
@@ -15,6 +17,10 @@ export const updateUserSchema = {
     },
     isDarkMode: {
       type: 'boolean',
+    },
+    locale: {
+      type: 'string',
+      enum: Object.values(LocaleType)
     },
   },
   required: [],
