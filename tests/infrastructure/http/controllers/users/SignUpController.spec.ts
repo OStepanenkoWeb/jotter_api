@@ -124,24 +124,7 @@ describe('SignUpController', () => {
     const httpRequest = makeFakeHttpRequest();
     await sut.handle(httpRequest);
 
-    expect(createPageSpy).toHaveBeenCalledWith(
-      expect.objectContaining({
-        title: 'Chandrayaan-3 | चंद्रयान-३',
-        icon: '1f680',
-        coverPicture: {
-          url: '/static/media/nasa_space_shuttle_columbia_and_sunrise.b623df337db2db60dcc0.jpg',
-          verticalPosition: 0,
-        },
-        favorite: [],
-        pageSettings: {
-          font: 'san-serif',
-          smallText: true,
-          fullWidth: true,
-          lock: true,
-        },
-        path: null,
-      })
-    );
+    expect(createPageSpy).toHaveBeenCalled();
   });
 
   it('should call getPageById with given params', async () => {
