@@ -49,6 +49,12 @@ And for testing the MongoDB, an in-memory implementation was used as a Jest pres
   cd course_book_api
 ```
 
+Копируйте env
+
+```bash
+  cp .env.example .env 
+```
+
 Установите зависимости
 
 ```bash
@@ -62,6 +68,12 @@ And for testing the MongoDB, an in-memory implementation was used as a Jest pres
 ```
 
 ## Как запустить с базой mongoDB в докер контейнере
+
+Копируйте env
+
+```bash
+  cp .env.example .env 
+```
 
 Выполните команду 
 
