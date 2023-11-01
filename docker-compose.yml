@@ -1,20 +1,33 @@
 version: '3'
 
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: server-node
+  api:
+    image: node:18.12.0-buster
+    container_name: course_book_api
     ports:
       - "${PORT}:${PORT}"
+    volumes:
+      - "./:/app"
+    command: bash -c "npm install && npm run dev"
+    working_dir: "/app"
     depends_on:
-      - "mongo"
+      - mongo
+    networks:
+      - jotter_course_book_front
+
   mongo:
-    container_name: db_container
+    container_name: course_book_db
     image: mongo
-    restart: always
     ports:
       - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "${MONGO_INITDB_ROOT_USERNAME}"
+      MONGO_INITDB_ROOT_PASSWORD: "${MONGO_INITDB_ROOT_PASSWORD}"
     volumes:
-      - /data/db/mongo
+      - ./deploy/docker-volumes/mongo:/etc/mongo
+    networks:
+      - jotter_course_book_front
+
+networks:
+  jotter_course_book_front:
+    external: true
