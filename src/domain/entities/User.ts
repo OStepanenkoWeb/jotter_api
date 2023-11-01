@@ -1,3 +1,8 @@
+export enum LocaleType {
+  RU = 'ru',
+  EN = 'en'
+}
+
 export type ProfilePictureType = {
   url: string;
 };
@@ -19,6 +24,7 @@ export type UserProps = {
   workspaces: WorkspaceType[];
   createdAt: Date;
   updatedAt?: Date;
+  locale?: LocaleType
 };
 
 export class User {
@@ -40,6 +46,8 @@ export class User {
 
   public readonly updatedAt?: Date;
 
+  public readonly locale: LocaleType;
+
   constructor(props: UserProps) {
     this.id = props.id;
     this.name = props.name;
@@ -50,5 +58,6 @@ export class User {
     this.workspaces = props.workspaces;
     this.createdAt = props.createdAt;
     this.updatedAt = props.updatedAt;
+    this.locale = props.locale || LocaleType.RU
   }
 }
