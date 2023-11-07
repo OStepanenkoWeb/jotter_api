@@ -2,6 +2,7 @@
 require('dotenv').config();
 
 export default {
+  uiHost: process.env.UI_HOST || 'http://localhost:3000',
   port: process.env.PORT || 5000,
   nodeEnv: process.env.NODE_ENV,
   mongoUrl: process.env.MONGO_URL || 'mongodb://127.0.0.1:27017/notion',
